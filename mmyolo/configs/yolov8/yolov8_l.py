@@ -1,3 +1,6 @@
+custom_imports = dict(imports=['mmyolo'], allow_failed_imports=False)
+default_scope = 'mmyolo'
+
 _base_ = './yolov8_m.py'
 
 # ========================modified parameters======================

@@ -239,7 +239,7 @@ def main(args):
     logger.info("Args: {}".format(args))
 
     config_file = "mmyolo/configs/yolov8/yolov8_l.py"
-    checkpoint_file = 'checkpoint/yolov8_l.pth' 
+    checkpoint_file = r'C:\Users\Madina\PycharmProjects\pythonProject3\YOLOv8-SMOT\runs\detect\runs\paraplane\train\weights\best.pt'
     
     # Allow overriding checkpoint via args for the base checkpoint_file
     base_checkpoint_file = getattr(args, 'checkpoint', checkpoint_file) # Use the one defined earlier or from args

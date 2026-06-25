@@ -126,24 +126,22 @@ def visualize(sub, image_dir, out_file, size=None, mp4=False, show_bbox=False):
                 draw.rectangle(
                     [bbox[0], bbox[1], bbox[0] + bbox[2], bbox[1] + bbox[3]],
                     outline=color,
-                    width=5,
+                    width=2,
                 )
 
         # using recent $trajectory_window frames to draw trajectory
         for _track_id, trajectory in trajectories.items():
-            if len(trajectory) > 1:
-                # filter the trajectory to only include points within the window
-                recent_trajectory = [
-                    (x, y) for frame_id, x, y in trajectory 
-                    if i - trajectory_window <= frame_id <= i
-                ]
-                
-                if len(recent_trajectory) > 1:
-                    draw.line(
-                        recent_trajectory, 
-                        fill=colors[(_track_id - 1) % len(colors)], 
-                        width=5
-                    )
+             if len(trajectory) > 1:
+                 recent_trajectory = [
+                     (x, y) for frame_id, x, y in trajectory
+                     if i - trajectory_window <= frame_id <= i
+                 ]
+                 if len(recent_trajectory) > 1:
+                     draw.line(
+                         recent_trajectory,
+                         fill=colors[(_track_id - 1) % len(colors)],
+                         width=2
+                     )
 
         if size is not None:
             read_image = read_image.resize(size)
